@@ -20,7 +20,7 @@
 
 .glow-on-hover-menu:before {
     content: '';
-    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    background: linear-gradient(45deg, #4b4b4b, #2e2e2e, #464646, #494949, #414141, #404040, #262626, #0d0d0d, #bfbfbf);
     position: absolute;
     top: -2px;
     left: -2px;
@@ -31,7 +31,7 @@
     height: calc(100% + 4px);
     animation: glowing 20s linear infinite;
     opacity: 0;
-    transition: opacity .3s ease-in-out;
+    transition: opacity .3s linear;
     border-radius: 10px;
 }
 
@@ -63,6 +63,10 @@
     top: 0;
     border-radius: 10px;
 }
+
+/* Login Button */
+
+
 
 @keyframes glowing {
     0% { background-position: 0 0; }

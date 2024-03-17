@@ -4,6 +4,7 @@ import './Home.css';
 import AboutImg from '../utils/img/about-img.jpg';
 import { Link } from 'react-router-dom';
 import anime from 'animejs/lib/anime.es.js'; // Import Anime.js library
+import '../components/GlowBtnMenu.css';
 
 function Home() {
     useEffect(() => {
