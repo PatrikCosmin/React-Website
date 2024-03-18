@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useUser } from '../context/UserContext'; 
-import { Modal, Button } from 'react-bootstrap';
+import { Modal } from 'react-bootstrap';
 import '../components/FormStyles.css';
 import '../components/FormBtn.css';
 
