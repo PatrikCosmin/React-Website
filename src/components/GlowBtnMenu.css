@@ -20,11 +20,7 @@
 
 .glow-on-hover-menu:before {
     content: '';
-<<<<<<< HEAD
     background: linear-gradient(45deg, #4b4b4b, #2e2e2e, #464646, #494949, #414141, #404040, #262626, #0d0d0d, #444444);
-=======
-    background: linear-gradient(45deg, #4b4b4b, #2e2e2e, #464646, #494949, #414141, #404040, #262626, #0d0d0d, #bfbfbf);
->>>>>>> 26717bc198726a8d618e92888e47a3aa1ed9f845
     position: absolute;
     top: -2px;
     left: -2px;

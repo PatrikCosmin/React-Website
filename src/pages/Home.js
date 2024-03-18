@@ -81,11 +81,8 @@ function Home() {
                         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident voluptate aut dolore ullam quasi numquam quod molestias cum officiis perspiciatis?</p>
                         <p className='mb-5'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab magni animi tenetur eaque vel accusamus placeat quaerat ad. Similique quaerat qui doloribus assumenda deserunt tenetur quas suscipit officiis quod sequi?</p>
                         <Link to="/about">
-<<<<<<< HEAD
                             <button type='button' className='glow-on-hover-menu'>More About Us</button>
-=======
-                            <button type='button' className='btn btn-outline-success btn-lg'>More About Us</button>
->>>>>>> 26717bc198726a8d618e92888e47a3aa1ed9f845
+
                         </Link>
                     </div>
                 </div>
