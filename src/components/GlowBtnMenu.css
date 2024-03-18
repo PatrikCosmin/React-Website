@@ -1,0 +1,75 @@
+.glow-on-hover-menu {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 100px; /* Increased from 80px */
+    height: 120px; /* Increased from 100px */
+    line-height: 120px; /* Adjusted to new height */
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+    padding: 0 30px; /* Increased from 20px */
+    font-size: 20px; /* Increased from 16px */
+    transition: transform 0.3s ease, font-size 0.3s ease;
+}
+
+.glow-on-hover-menu:before {
+    content: '';
+    background: linear-gradient(45deg, #4b4b4b, #2e2e2e, #464646, #494949, #414141, #404040, #262626, #0d0d0d, #444444);
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s linear;
+    border-radius: 10px;
+}
+
+.glow-on-hover-menu:active {
+    color: #000;
+}
+
+.glow-on-hover-menu:active:after {
+    background: transparent;
+}
+
+.glow-on-hover-menu:hover {
+    transform: scale(1.2); /* Increased scale for hover effect */
+    font-size: 22px; /* Increased font size on hover */
+}
+
+.glow-on-hover-menu:hover:before {
+    opacity: 1;
+}
+
+.glow-on-hover-menu:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+/* Login Button */
+
+
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}

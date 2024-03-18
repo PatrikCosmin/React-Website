@@ -1,0 +1,90 @@
+/* Sets the style for the navbar. Ensures it has a black background and is fixed to the top */
+.navbar.fixed-top.bg-body-tertiary.shadow.navbar-custom {
+    background-color: #000000 !important;
+}
+
+/* Styles for the navigation links (glow-on-hover class)
+   - Sets the display, alignment, size, border, color, etc.
+   - Positions the links relative to their container
+   - Adds a border radius and padding for visual appeal */
+.glow-on-hover {
+    text-align: center;
+    display: inline;
+    align-items: center;
+    justify-content: center;
+    min-width: 80px;
+    height: 40px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    margin: 20px;
+    z-index: 0;
+    border-radius: 10px;
+    padding: 0 20px;
+}
+
+/* Specifies the style for the glowing effect before the element (pseudo-element)
+   - Sets a linear gradient background
+   - Positions and sizes the element
+   - Includes a blur filter for the glow effect 
+   - Sets initial opacity to 0 for a transition effect */
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #d9d9d9, #c0c0c0, #a7a7a7, #8f8f8f, #767676, #8c8c8c, #a3a3a3, #bababa, #d9d9d9);
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    opacity: 0;
+    transition: opacity .3s linear;
+    border-radius: 10px;
+}
+
+/* Changes the text color when the button is in an active state */
+.glow-on-hover:active {
+    color: #8f8d8d;
+}
+
+/* Increases the opacity of the :before pseudo-element on hover to make the glow visible */
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+
+/* Sets the background of the :after pseudo-element, used for the button face */
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+/* Changes the background color of the navigation button when it is the active route 
+   - This is where you set the color for an active navigation button */
+.glow-on-hover.glow-active {
+    background-color: #d9d9d9 !important; /* Bright gray color for active state */
+}
+
+/* Defines the animation for the glowing effect */
+.glow-active:before {
+    opacity: 1;
+    animation: glowing 20s linear infinite;
+}
+
+/* Keyframes for the glowing animation, creating a moving gradient effect */
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
