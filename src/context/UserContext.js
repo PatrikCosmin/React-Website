@@ -1,29 +1,39 @@
 import React, { createContext, useState, useContext } from 'react';
-import { Alert, Button } from 'react-bootstrap';
+import { Alert } from 'react-bootstrap';
 
 const UserContext = createContext(null);
 
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [showLoginSuccess, setShowLoginSuccess] = useState(false); // State for login success message
-  const [showLoginFailed, setShowLoginFailed] = useState(false); // State for login failed message
+  const [showLoginSuccess, setShowLoginSuccess] = useState(false); 
+  const [showLoginFailed, setShowLoginFailed] = useState(false); 
 
   const login = (userData) => {
     setUser(userData);
-    setShowLoginSuccess(true); // Show login success message
-    // Additional login logic (e.g., storing token)
+    setShowLoginSuccess(true);
+    isLoggedIn(true);
+    // Additional login logic
+  };
+
+  const logout = () => {
+    setUser(null); // Clear user data on logout
+    // Additional logout logic if needed
+  };
+
+  const isLoggedIn = () => {
+    return user !== null;
   };
 
   const handleCloseLoginSuccess = () => {
-    setShowLoginSuccess(false); // Close login success message
+    setShowLoginSuccess(false);
   };
 
   const handleCloseLoginFailed = () => {
-    setShowLoginFailed(false); // Close login failed message
+    setShowLoginFailed(false);
   };
 
   return (
-    <UserContext.Provider value={{ user, login }}>
+    <UserContext.Provider value={{ user, login, logout, isLoggedIn }}>
       {children}
       {/* Login success message */}
       <Alert show={showLoginSuccess} variant="success" onClose={handleCloseLoginSuccess} dismissible>
