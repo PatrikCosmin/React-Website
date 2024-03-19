@@ -3,13 +3,13 @@ import { Link, Routes, Route, useLocation } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import Home from './pages/Home';
-import Menu from './pages/Menu';
-import Contact from './pages/Contact';
-import About from './pages/About';
-import Login from './pages/Login';
-import Register from './pages/Register';
-import './components/GlowBtnNav.css';
+import Home from './components/Home';
+import Menu from './components/Menu';
+import Contact from './components/Contact';
+import About from './components/About';
+import Login from './components/Login';
+import Register from './components/Register';
+import './styles/GlowBtnNav.css';
 import { UserProvider, useUser } from './context/UserContext';
 
 function CustomNavbar() {

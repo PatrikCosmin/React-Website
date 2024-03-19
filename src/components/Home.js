@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
-import { MenuBtn } from '../components/MenuBtn';
-import './Home.css';
+import { MenuBtn } from './MenuBtn';
+import '../styles/Home.css';
 import AboutImg from '../utils/img/about-img.jpg';
 import { Link } from 'react-router-dom';
 import anime from 'animejs/lib/anime.es.js'; // Import Anime.js library
-import '../components/GlowBtnMenu.css';
+import '../styles/GlowBtnMenu.css';
 
 function Home() {
     useEffect(() => {

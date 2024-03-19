@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './GlowBtnMenu.css';
+import '../styles/GlowBtnMenu.css';
 
 export function MenuBtn() {
     return (

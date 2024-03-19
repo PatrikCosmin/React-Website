@@ -35,16 +35,6 @@ export const UserProvider = ({ children }) => {
   return (
     <UserContext.Provider value={{ user, login, logout, isLoggedIn }}>
       {children}
-      {/* Login success message */}
-      <Alert show={showLoginSuccess} variant="success" onClose={handleCloseLoginSuccess} dismissible>
-        <Alert.Heading>Login Successful!</Alert.Heading>
-        <p>You have successfully logged in.</p>
-      </Alert>
-      {/* Login failed message */}
-      <Alert show={showLoginFailed} variant="danger" onClose={handleCloseLoginFailed} dismissible>
-        <Alert.Heading>Login Failed!</Alert.Heading>
-        <p>Incorrect username or password.</p>
-      </Alert>
     </UserContext.Provider>
   );
 };

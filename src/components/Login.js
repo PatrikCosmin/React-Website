@@ -1,9 +1,14 @@
-import React, { useState, useEffect } from 'react';
+// src/pages/Login.js
+
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios'; // Import axios for making HTTP requests
 import { useUser } from '../context/UserContext'; 
-import { Modal } from 'react-bootstrap';
-import '../components/FormStyles.css';
-import '../components/FormBtn.css';
+import '../styles/FormStyles.css';
+import '../styles/FormBtn.css';
+
+// Specify the base URL of the backend server
+const baseURL = 'http://localhost:5000'; // Assuming backend is running on port 5000
 
 function Login() {
   const { login } = useUser();
@@ -18,15 +23,12 @@ function Login() {
     event.preventDefault();
     setLoading(true);
 
-    // Simulate login process
     try {
-      if (username === 'patrik' && password === 'patrik') {
-        await login({ username, token: 'abc123' });
-        setShowLoginFailed(false);
-        setShowLoginSuccess(true); // Set login success to true
-      } else {
-        setShowLoginFailed(true);
-      }
+      const response = await axios.post(`${baseURL}/api/login`, { username, password }); // Send POST request to backend
+      setShowLoginFailed(false);
+      setShowLoginSuccess(true);
+      login({ username }); // Store user data in context
+      navigate('/'); // Redirect to home page after successful login
     } catch (error) {
       console.error('Login failed:', error);
       setShowLoginFailed(true);
@@ -34,16 +36,6 @@ function Login() {
       setLoading(false);
     }
   };
-
-  useEffect(() => {
-    if (showLoginSuccess) {
-      const timeout = setTimeout(() => {
-        navigate('/'); // Navigate to home after successful login
-      }, 2000); // Delay before redirection to show success message
-
-      return () => clearTimeout(timeout);
-    }
-  }, [showLoginSuccess, navigate]);
 
   return (
     <div className='img'>
@@ -61,13 +53,6 @@ function Login() {
           <p>Don't have an account? <Link to="/register">Register here</Link></p>
         </div>
       </div>
-      {/* Login success modal */}
-      <Modal show={showLoginSuccess} onHide={() => setShowLoginSuccess(false)}>
-        <Modal.Header closeButton>
-          <Modal.Title>Login Successful!</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>You have successfully logged in.</Modal.Body>
-      </Modal>
     </div>
   );
 }
