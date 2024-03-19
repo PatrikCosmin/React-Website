@@ -1,14 +1,11 @@
-// src/pages/Login.js
-
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios'; // Import axios for making HTTP requests
-import { useUser } from '../context/UserContext'; 
+import axios from 'axios';
+import { useUser } from '../context/UserContext';
 import '../styles/FormStyles.css';
 import '../styles/FormBtn.css';
 
-// Specify the base URL of the backend server
-const baseURL = 'http://localhost:5000'; // Assuming backend is running on port 5000
+const baseURL = 'http://localhost:5000';
 
 function Login() {
   const { login } = useUser();
@@ -24,11 +21,11 @@ function Login() {
     setLoading(true);
 
     try {
-      const response = await axios.post(`${baseURL}/api/login`, { username, password }); // Send POST request to backend
+      const response = await axios.post(`${baseURL}/api/login`, { username, password });
       setShowLoginFailed(false);
       setShowLoginSuccess(true);
-      login({ username }); // Store user data in context
-      navigate('/'); // Redirect to home page after successful login
+      login({ username, isAdmin: response.data.isAdmin });
+      navigate('/');
     } catch (error) {
       console.error('Login failed:', error);
       setShowLoginFailed(true);
