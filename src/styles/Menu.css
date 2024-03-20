@@ -57,3 +57,43 @@
     border-color: #000000;
     box-shadow: 0 0 20px #404041;
     }
+
+    .admin-form-container {
+      border: 1px solid #ddd;
+      padding: 15px;
+      border-radius: 8px;
+      overflow: hidden;
+      background-color: rgba(0, 0, 0, 0.75);
+      color: white;
+      margin-bottom: 20px; /* For spacing between the form and menu items */
+  }
+  
+  .admin-form-container h2 {
+      margin-bottom: 15px;
+      text-align: center;
+  }
+  
+  .admin-form-container form {
+      display: flex;
+      flex-direction: column;
+  }
+  
+  .admin-form-container form input[type="text"],
+  .admin-form-container form input[type="number"],
+  .admin-form-container form input[type="email"],
+  .admin-form-container form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+      background-color: rgba(255, 255, 255, 0.8);
+      color: black;
+  }
+  
+  .glowing-border:focus { 
+      outline: none;
+      border-color: #000000;
+      box-shadow: 0 0 20px #404041;
+  }
+  
