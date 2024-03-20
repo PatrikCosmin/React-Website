@@ -5,13 +5,12 @@ import Button from 'react-bootstrap/Button';
 import '../styles/Menu.css';
 import '../styles/FormBtn.css';
 
-
 const baseURL = 'http://localhost:5000';
 
 const Menu = () => {
   const [menuItems, setMenuItems] = useState([]);
   const [currentItem, setCurrentItem] = useState(null);
-  const [formData, setFormData] = useState({ name: '', description: '', price: '', image: '' });
+  const [formData, setFormData] = useState({ name: '', description: '', price: '', image: '', category: '' });
   const { user } = useUser();
 
   const fetchMenuItems = async () => {
@@ -37,7 +36,7 @@ const Menu = () => {
   };
 
   const clearForm = () => {
-    setFormData({ name: '', description: '', price: '', image: '' });
+    setFormData({ name: '', description: '', price: '', image: '', category: '' });
     setCurrentItem(null);
   };
 
@@ -65,24 +64,72 @@ const Menu = () => {
     }
   };
 
+  const filterItemsByCategory = (category) => {
+    return menuItems.filter(item => item.category === category);
+  };
+
   return (
     <div className="menu-container">
-      {menuItems.map(item => (
-        <div className="menu-item glowing-border" key={item.id}>
-          <img src={item.image} alt={item.name} className="menu-image" />
-          <div className="menu-info">
-            <h3>{item.name}</h3>
-            <p>{item.description}</p>
-            <p>${item.price}</p>
-            {user && user.isAdmin === 1 && (
-              <>
-                <Button className='login-btn' onClick={() => openEditForm(item)}>Edit</Button>
-                <Button className='login-btn' onClick={() => handleDelete(item.id)}>Delete</Button>
-              </>
-            )}
+      <div className="category">
+        <h2>Appetizers</h2>
+        {filterItemsByCategory('appetizer').map(item => (
+          <div className="menu-item glowing-border" key={item.id}>
+            <img src={item.image} alt={item.name} className="menu-image" />
+            <div className="menu-info">
+              <h3>{item.name}</h3>
+              <p>{item.description}</p>
+              <p>${item.price}</p>
+              {user && user.isAdmin === 1 && (
+                <>
+                  <Button className='login-btn' onClick={() => openEditForm(item)}>Edit</Button>
+                  <Button className='login-btn' onClick={() => handleDelete(item.id)}>Delete</Button>
+                </>
+              )}
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
+
+      {/* Repeat similar sections for other categories (main dishes, desserts) */}
+      <div className="category">
+        <h2>Main Dishes</h2>
+        {filterItemsByCategory('main').map(item => (
+          <div className="menu-item glowing-border" key={item.id}>
+            <img src={item.image} alt={item.name} className="menu-image" />
+            <div className="menu-info">
+              <h3>{item.name}</h3>
+              <p>{item.description}</p>
+              <p>${item.price}</p>
+              {user && user.isAdmin === 1 && (
+                <>
+                  <Button className='login-btn' onClick={() => openEditForm(item)}>Edit</Button>
+                  <Button className='login-btn' onClick={() => handleDelete(item.id)}>Delete</Button>
+                </>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="category">
+        <h2>Desserts</h2>
+        {filterItemsByCategory('dessert').map(item => (
+          <div className="menu-item glowing-border" key={item.id}>
+            <img src={item.image} alt={item.name} className="menu-image" />
+            <div className="menu-info">
+              <h3>{item.name}</h3>
+              <p>{item.description}</p>
+              <p>${item.price}</p>
+              {user && user.isAdmin === 1 && (
+                <>
+                  <Button className='login-btn' onClick={() => openEditForm(item)}>Edit</Button>
+                  <Button className='login-btn' onClick={() => handleDelete(item.id)}>Delete</Button>
+                </>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
 
       {user && user.isAdmin === 1 && (
         <div className="admin-form-container menu-item">
@@ -92,6 +139,12 @@ const Menu = () => {
             <input type="text" name="description" value={formData.description} onChange={handleFormChange} placeholder="Description" />
             <input type="number" name="price" value={formData.price} onChange={handleFormChange} placeholder="Price" />
             <input type="text" name="image" value={formData.image} onChange={handleFormChange} placeholder="Image URL" />
+            <select name="category" value={formData.category} onChange={handleFormChange}>
+              <option value="">Select category</option>
+              <option value="appetizer">Appetizer</option>
+              <option value="main">Main Dish</option>
+              <option value="dessert">Dessert</option>
+            </select>
             <Button className='login-btn' type="submit">{currentItem ? 'Update' : 'Add'}</Button>
             <Button className='login-btn' onClick={clearForm}>Cancel</Button>
           </form>

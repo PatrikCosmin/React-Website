@@ -53,7 +53,8 @@ db.serialize(() => {
     name TEXT,
     description TEXT,
     price REAL,
-    image TEXT
+    image TEXT,
+    category TEXT
   )`);
   db.run(`CREATE TABLE IF NOT EXISTS contact_submissions (
     id INTEGER PRIMARY KEY,
@@ -127,8 +128,8 @@ db.serialize(() => {
 // Add a menu item
 app.post('/api/menu/add', async (req, res) => {
   try {
-    const { name, description, price, image } = req.body;
-    db.run('INSERT INTO menu_items (name, description, price, image) VALUES (?, ?, ?, ?)', [name, description, price, image], function(err) {
+    const { name, description, price, image, category } = req.body;
+    db.run('INSERT INTO menu_items (name, description, price, image, category) VALUES (?, ?, ?, ?, ?)', [name, description, price, image, category], function(err) {
       if (err) {
         return res.status(500).json({ message: 'Error adding menu item', error: err });
       }
@@ -144,8 +145,8 @@ app.post('/api/menu/add', async (req, res) => {
 app.put('/api/menu/edit/:id', async (req, res) => {
   try {
     const { id } = req.params;
-    const { name, description, price, image } = req.body;
-    db.run('UPDATE menu_items SET name = ?, description = ?, price = ?, image = ? WHERE id = ?', [name, description, price, image, id], function(err) {
+    const { name, description, price, image, category } = req.body;
+    db.run('UPDATE menu_items SET name = ?, description = ?, price = ?, image = ?, category = ? WHERE id = ?', [name, description, price, image, category, id], function(err) {
       if (err) {
         return res.status(500).json({ message: 'Error updating menu item', error: err });
       }
