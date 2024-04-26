@@ -1,0 +1,39 @@
+/* FormStyles.css */
+.img {
+    background-image: url(../utils/img/header-img.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    background: linear-gradient(to right, rgba(150, 150, 150, 0.8), rgba(56, 56, 56, 0.8));
+    /* Transparent gradient */
+}
+  
+  .form-box {
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+  }
+  
+  .form-button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+  }

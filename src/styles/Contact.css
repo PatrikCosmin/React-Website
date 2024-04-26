@@ -1,0 +1,78 @@
+.contact-container {
+    background-image: url(../utils/img/header-img.jpg);
+    background-size: cover;
+    background-position: center;
+    padding: 20px 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.contact-info, .feedback-form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+    width: 100%;
+    max-width: 500px;
+}
+
+.contact-info h2, .feedback-form h2 {
+    color: #333;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.contact-info ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.contact-info li {
+    margin-bottom: 10px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.feedback-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.feedback-form form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.feedback-form form input[type="text"],
+.feedback-form form input[type="email"],
+.feedback-form form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.feedback-form form button {
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+}
+
+.feedback-form form button:hover {
+    background-color: #4d4d4d;
+}
+
+.contact-info {
+    text-align: center;
+}

@@ -1,0 +1,143 @@
+.menu-container {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  padding-top: 120px;
+  overflow: hidden; /* Ensure the blurred image doesn't overflow */
+}
+
+.menu-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-image: url('../utils/img/about-img.jpg'); /* Update the path if needed */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(3px); /* Adjust blur amount as needed */
+  opacity: 0.9; /* Adjust darkness of the overlay */
+}
+
+/* Rest of your CSS */
+
+      
+      /* Rest of your CSS */
+      
+
+  
+  .menu-item {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.75);
+    margin-bottom: 20px;
+    
+  }
+  
+  .menu-item:hover {
+    transform: scale(1.05);
+  }
+  
+  .menu-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .menu-info {
+    padding: 10px 0;
+  }
+  
+  @media (max-width: 600px) {
+    .menu-container {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .glowing-border {
+    border: 3px solid #000000;
+    border-radius: 7px;
+    }
+
+    .glowing-border:focus { 
+    outline: none;
+    border-color: #000000;
+    box-shadow: 0 0 20px #404041;
+    }
+
+    .admin-form-container {
+      border: 1px solid #060606;
+      padding: 15px;
+      border-radius: 8px;
+      overflow: hidden;
+      background-color: rgba(0, 0, 0, 0.75);
+      color: white;
+      margin-bottom: 20px; /* For spacing between the form and menu items */
+  }
+  
+  .admin-form-container h2 {
+      margin-bottom: 15px;
+      text-align: center;
+  }
+  
+  .admin-form-container form {
+      display: flex;
+      flex-direction: column;
+  }
+  
+  .admin-form-container form input[type="text"],
+  .admin-form-container form input[type="number"],
+  .admin-form-container form input[type="email"],
+  .admin-form-container form textarea,
+  .admin-form-container form select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+      background-color: rgba(255, 255, 255, 0.8);
+      color: black;
+  }
+  
+  .glowing-border:focus { 
+      outline: none;
+      border-color: #000000;
+      box-shadow: 0 0 20px #404041;
+  }
+
+  .category {
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+
+  #root > div > div > div > h2 > button {
+    background-color: rgba(0, 0, 0, 0.3);
+    
+  }
+
+  #root > div > div > div > h2 {
+    display: flex;
+    justify-content: space-between; /* Align title to the left and button to the right */
+    align-items: center;
+  }
+  
+  @media (min-width: 768px) {
+    #root > div > div > div > h2 > button {
+      display: none;
+    }
+  }
