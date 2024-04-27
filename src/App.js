@@ -11,6 +11,7 @@ import Login from './components/Login';
 import Register from './components/Register';
 import FeedbackManagement from './components/FeedbackManagement';
 import UserManagement from './components/UserManagement'; // Import the UserManagement component
+import Reservation from './components/Reservation'; // Adjust path as necessary
 import './styles/GlowBtnNav.css';
 import { UserProvider, useUser } from './context/UserContext';
 
@@ -60,6 +61,7 @@ function CustomNavbar() {
           <Nav className='me-auto justify-center-end w-100'>
             <Nav.Link as={Link} to='/' onClick={closeNavbar} className={`glow-on-hover ${isActive('/') ? 'glow-active' : ''} text-uppercase text-light mx-3`}>Home</Nav.Link>
             <Nav.Link as={Link} to='/menu' onClick={closeNavbar} className={`glow-on-hover ${isActive('/menu') ? 'glow-active' : ''} text-uppercase text-light mx-3`}>Menu</Nav.Link>
+            <Nav.Link as={Link} to='/reservation' onClick={closeNavbar} className={`glow-on-hover ${isActive('/menu') ? 'glow-active' : ''} text-uppercase text-light mx-3`}>Reservation</Nav.Link>
             <Nav.Link as={Link} to='/about' onClick={closeNavbar} className={`glow-on-hover ${isActive('/about') ? 'glow-active' : ''} text-uppercase text-light mx-3`}>About</Nav.Link>
             <Nav.Link as={Link} to='/contact' onClick={closeNavbar} className={`glow-on-hover ${isActive('/contact') ? 'glow-active' : ''} text-uppercase text-light mx-3`}>Contact</Nav.Link>
             {user ? (
@@ -92,6 +94,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/menu' element={<Menu />} />
+          <Route path='/reservation' element={<Reservation />} />
           <Route path='/about' element={<About />} />
           <Route path='/contact' element={<Contact />} />
           <Route path='/login' element={<Login />} />
