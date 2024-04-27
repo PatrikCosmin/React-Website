@@ -96,6 +96,41 @@ app.post('/api/reservations', (req, res) => {
   });
 });
 
+// Endpoint to fetch all reservations
+app.get('/api/reservations', (req, res) => {
+  db.all('SELECT * FROM reservations', (err, rows) => {
+    if (err) {
+      res.status(500).json({ message: 'Internal server error', error: err });
+      return;
+    }
+    res.status(200).json(rows);
+  });
+});
+
+// Edit a reservation
+app.put('/api/reservations/:id', (req, res) => {
+  const { id } = req.params;
+  const { date, time, guests } = req.body;
+  db.run('UPDATE reservations SET date = ?, time = ?, guests = ? WHERE id = ?', [date, time, guests, id], function(err) {
+    if (err) {
+      return res.status(500).json({ message: 'Error updating reservation', error: err });
+    }
+    res.status(200).json({ message: 'Reservation updated successfully' });
+  });
+});
+
+// Delete a reservation
+app.delete('/api/reservations/:id', (req, res) => {
+  const { id } = req.params;
+  db.run('DELETE FROM reservations WHERE id = ?', [id], function(err) {
+    if (err) {
+      return res.status(500).json({ message: 'Error deleting reservation', error: err });
+    }
+    res.status(200).json({ message: 'Reservation deleted successfully' });
+  });
+});
+
+
   // Registration endpoint
   app.post('/api/register', async (req, res) => {
     const { username, email, password } = req.body;

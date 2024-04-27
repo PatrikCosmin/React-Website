@@ -1,65 +1,66 @@
-.reservation-container {
-    background-image: url(../utils/img/header-img.jpg); /* Ensure the path to the image is correct */
+/* Set the background image for the entire page */
+.container-master {
+    background-image: url(../utils/img/header-img.jpg); /* Replace 'path_to_your_image.jpg' with the path to your background image */
     background-size: cover;
     background-position: center;
-    padding: 40px;
-    min-height: 100vh;
+    min-height: 100vh; /* Make sure the background covers the full viewport height */
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: #333; /* Adjust text color for better visibility */
-}
-
-.reservation-form {
-    background-color: rgba(255, 255, 255, 0.95); /* Slightly transparent white for a soft overlay effect */
-    padding: 30px;
+  }
+  
+  /* Style for the reservation container */
+  .reservation-container {
+    background-color: rgba(192, 192, 192, 0.8); /* Semi-transparent gray background */
+    padding: 20px;
+    border: 2px solid rgb(196, 196, 196);
     border-radius: 10px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Softer shadow for a more modern look */
-    width: 100%;
-    max-width: 400px; /* Narrower form for a more focused interaction */
-}
-
-.reservation-form h2 {
-    color: #2c3e50; /* Darker shade for the title */
-    margin-bottom: 20px; /* More space around the title */
-    text-align: center;
-}
-
-.reservation-form form {
+    width: 90%;
+    max-width: 500px; /* Set a max width for the form */
+  }
+  
+  /* Form element styles */
+  form {
     display: flex;
     flex-direction: column;
-}
-
-.reservation-form form label {
-    font-weight: bold;
-    margin-bottom: 10px; /* Increased space for better readability */
-}
-
-.reservation-form form input[type="date"],
-.reservation-form form select,
-.reservation-form form input[type="number"] {
+    gap: 10px;
+  }
+  
+  /* Style for labels and inputs */
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input[type="date"],
+  input[type="number"],
+  select {
     width: 100%;
-    padding: 12px; /* Larger padding for a more tactile feel */
-    margin-bottom: 15px; /* More space between inputs */
-    border-radius: 8px; /* Rounded corners for a modern look */
-    border: 1px solid #ccc; /* Lighter border color */
-    background-color: #f8f9fa; /* Light background to differentiate input fields */
-}
-
-.reservation-form form button {
-    padding: 12px 20px;
-    margin-top: 15px; /* More margin above the button */
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    background-color: #3498db; /* Bright blue for a fresh look */
+    padding: 8px;
+    margin-bottom: 10px; /* Space between form fields */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* Style for the submit button */
+  button {
+    background-color: black;
     color: white;
-    font-weight: bold;
-    transition: background-color 0.3s; /* Smooth transition for hover effect */
-}
-
-.reservation-form form button:hover {
-    background-color: #2874a6; /* Darker blue on hover for interaction feedback */
-}
-
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #333333; /* Darker grey when hovering */
+  }
+  
+  /* Style for the reservation success message */
+  p {
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
