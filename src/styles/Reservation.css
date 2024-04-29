@@ -59,7 +59,7 @@
   
   /* Style for the reservation success message */
   p {
-    color: white;
+    color: rgb(0, 0, 0);
     text-align: center;
     margin-top: 20px;
   }

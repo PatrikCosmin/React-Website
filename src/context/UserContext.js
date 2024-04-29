@@ -1,19 +1,25 @@
-import React, { createContext, useState, useContext } from 'react';
+import React, { createContext, useState, useEffect, useContext } from 'react';
 
 const UserContext = createContext(null);
 
 export const UserProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(() => {
+    // Check for user info in localStorage during initial load
+    const savedUser = localStorage.getItem('user');
+    return savedUser ? JSON.parse(savedUser) : null;
+  });
   const [showLoginSuccess, setShowLoginSuccess] = useState(false);
   const [showLoginFailed, setShowLoginFailed] = useState(false);
 
   const login = (userData) => {
     setUser(userData);
+    localStorage.setItem('user', JSON.stringify(userData)); // Save user to localStorage
     setShowLoginSuccess(true);
   };
 
   const logout = () => {
     setUser(null);
+    localStorage.removeItem('user'); // Clear user from localStorage
   };
 
   const isLoggedIn = () => {
