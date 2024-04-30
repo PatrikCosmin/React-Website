@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../styles/Users.css';
-import '../styles/GlowBtnNav.css';
+import '../styles/Navbar.css';
 
 const UserManagement = () => {
   const [users, setUsers] = useState([]);
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
     fetchUsers();
@@ -33,15 +34,18 @@ const UserManagement = () => {
 
   const addUser = async () => {
     try {
-      await axios.post('http://localhost:5000/api/user/add', { username, email, password });
+      const isAdminValue = isAdmin ? 1 : 0; // Convert isAdmin to 1 or 0 based on its value
+      await axios.post('http://localhost:5000/api/user/add', { username, email, password, isAdmin: isAdminValue });
       fetchUsers();
       setUsername('');
       setEmail('');
       setPassword('');
+      setIsAdmin(false);
     } catch (error) {
       console.error('Error adding user:', error);
     }
   };
+  
 
   return (
     
@@ -52,6 +56,10 @@ const UserManagement = () => {
         <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
         <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
         <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+        <label>
+          Admin:
+          <input type="checkbox" checked={isAdmin} onChange={(e) => setIsAdmin(e.target.checked)} />
+        </label>
         <button className='glow-on-hover' onClick={addUser}>Add User</button>
       </div>
       <div>

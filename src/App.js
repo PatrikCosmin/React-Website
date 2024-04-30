@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Link, Routes, Route, useLocation } from 'react-router-dom';
+import { Link, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -12,12 +12,13 @@ import Register from './components/Register';
 import FeedbackManagement from './components/FeedbackManagement';
 import UserManagement from './components/UserManagement'; // Import the UserManagement component
 import Reservation from './components/Reservation'; // Adjust path as necessary
-import './styles/GlowBtnNav.css';
+import './styles/Navbar.css';
 import { UserProvider, useUser } from './context/UserContext';
 
 function CustomNavbar() {
   const { user, logout } = useUser();
   const location = useLocation();
+  const navigate = useNavigate();
 
   const [expanded, setExpanded] = useState(false);
   const [isNavbarCollapsed, setIsNavbarCollapsed] = useState(false);
@@ -50,6 +51,7 @@ function CustomNavbar() {
   const handleLogout = () => {
     if (window.confirm('Are you sure you want to logout?')) {
       logout();
+      navigate('/');
     }
   };
 

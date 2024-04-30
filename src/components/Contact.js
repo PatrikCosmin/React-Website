@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import Map from './Map';
 import '../styles/Contact.css';
 import '../styles/FormBtn.css';
+import 'leaflet/dist/leaflet.css';
 
 const baseURL = 'http://localhost:5000';
 
@@ -39,7 +41,10 @@ function Contact() {
           <li>Phone: +123 456 7890</li>
           <li>Address: 123 Food Street, Flavor Town, USA</li>
         </ul>
+        <Map />
       </div>
+
+      
 
       <div className="feedback-form">
         <h2>Send Us Your Feedback</h2>

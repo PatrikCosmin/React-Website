@@ -24,6 +24,10 @@
     margin-top: 20px;
 }
 
+.users-form label > input[type=checkbox] {
+    margin-left: 20px;
+}
+
 .users-form input[type="text"],
 .users-form input[type="email"],
 .users-form input[type="password"] {

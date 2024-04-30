@@ -294,10 +294,10 @@ app.delete('/api/feedback/all', async (req, res) => {
 // Add a user
 app.post('/api/user/add', async (req, res) => {
   try {
-    const { username, email, password } = req.body;
+    const { username, email, password, isAdmin } = req.body;
     const hashedPassword = await bcrypt.hash(password, 10);
-    db.run('INSERT INTO users (username, email, password, isAdmin) VALUES (?, ?, ?, 0)', 
-           [username, email, hashedPassword], 
+    db.run('INSERT INTO users (username, email, password, isAdmin) VALUES (?, ?, ?, ?)', 
+           [username, email, hashedPassword, isAdmin], 
            (err) => {
       if (err) {
         return res.status(500).json({ message: 'Error adding user', error: err });
@@ -338,6 +338,8 @@ app.get('/api/users', (req, res) => {
 
 
 
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
+
