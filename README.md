@@ -1,70 +1,32 @@
-# Getting Started with Create React App
+React Website Portfolio Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to my React Website Portfolio Project! This journey has been an exciting exploration into the world of React, showcasing various functionalities and features that demonstrate its power and versatility.
 
-## Available Scripts
+Features
 
-In the project directory, you can run:
+Homepage: A visually appealing landing page that welcomes visitors to the website.
+Menu: Explore our diverse menu offerings, beautifully presented for your viewing pleasure.
+Reservation: Easily make reservations for your upcoming dining experiences.
+About: Learn more about our restaurant, our team, and our story.
+Contact: Get in touch with us through our contact form or find our location on the map.
+Login & Registration: Seamlessly manage user authentication with secure login and registration functionality.
+User Management: Administer user accounts and privileges with ease.
+Reservation Management: Effortlessly manage reservations and bookings.
+Feedback Management: Collect and review customer feedback to continually improve our services.
+Responsive Navbar: A sleek and intuitive navigation bar that adapts to different screen sizes for optimal user experience.
+Technologies Used
+This project leverages the following technologies:
 
-### `npm start`
+React: A powerful JavaScript library for building user interfaces.
+React Router: Enables navigation and routing functionalities within the React application.
+React Bootstrap: Provides pre-designed components and responsive layouts for faster and easier web development.
+Node.js: A JavaScript runtime environment used for server-side scripting.
+Express.js: A minimalist web framework for Node.js that simplifies the process of building APIs and web applications.
+SQLite: A lightweight, file-based database management system used for storing application data.
+bcrypt.js: A library for securely hashing passwords to protect user credentials.
+Cors: Middleware for Express.js that enables Cross-Origin Resource Sharing (CORS) to allow communication between different domains.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Conclusion
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Building this React website has been an enriching experience, allowing me to delve into various aspects of web development, including frontend design, state management, user authentication, and server-side scripting. I'm proud of the functionalities implemented and the skills acquired throughout this project.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
