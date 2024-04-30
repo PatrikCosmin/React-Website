@@ -20,7 +20,30 @@ function CustomNavbar() {
   const location = useLocation();
 
   const [expanded, setExpanded] = useState(false);
+  const [isNavbarCollapsed, setIsNavbarCollapsed] = useState(false);
   const navbarRef = useRef(null);
+
+  // const customBreakpoint = 1200; // Example: 992px for collapsing at 'md' screen size
+
+  useEffect(() => {
+    const handleResize = () => {
+      const customBreakpoint = user && user.isAdmin ? 1200 : 992;
+      if (window.innerWidth < customBreakpoint) {
+        setIsNavbarCollapsed(true);
+      } else {
+        setIsNavbarCollapsed(false);
+      }
+    };
+
+    // Set initial state based on window size
+    handleResize();
+
+    // Add event listener for window resize
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup listener on component unmount
+    return () => window.removeEventListener('resize', handleResize);
+  }, [user]);
 
   const isActive = (path) => location.pathname === path;
 
@@ -38,7 +61,6 @@ function CustomNavbar() {
     };
 
     document.addEventListener('click', handleClickOutside);
-
     return () => {
       document.removeEventListener('click', handleClickOutside);
     };
@@ -49,7 +71,7 @@ function CustomNavbar() {
   };
 
   return (
-    <Navbar expand='lg' className='fixed-top bg-body-tertiary shadow navbar-custom' expanded={expanded} ref={navbarRef}>
+    <Navbar expand={!isNavbarCollapsed} className='fixed-top bg-body-tertiary shadow navbar-custom' expanded={expanded} ref={navbarRef}>
       <Container>
         <Navbar.Brand>
           <Link to='/' className='navbar-brand fw-semibold text-light'>
@@ -69,7 +91,7 @@ function CustomNavbar() {
                 {user.isAdmin === 1 && (
                   <>
                     <Nav.Link as={Link} to='/feedback' onClick={closeNavbar} className={`glow-on-hover ${isActive('/feedback') ? 'glow-active' : ''} text-uppercase text-light mx-3`}>Feedback</Nav.Link>
-                    <Nav.Link as={Link} to='/users' onClick={closeNavbar} className={`glow-on-hover ${isActive('/users') ? 'glow-active' : ''} text-uppercase text-light mx-3`}>Users</Nav.Link> {/* Add link to UserManagement component */}
+                    <Nav.Link as={Link} to='/users' onClick={closeNavbar} className={`glow-on-hover ${isActive('/users') ? 'glow-active' : ''} text-uppercase text-light mx-3`}>Users</Nav.Link>
                   </>
                 )}
                 <Nav.Link onClick={handleLogout} className="glow-on-hover text-uppercase text-light mx-3">
@@ -100,7 +122,7 @@ function App() {
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
           <Route path='/feedback' element={<FeedbackManagement />} />
-          <Route path='/users' element={<UserManagement />} /> {/* Add route for UserManagement component */}
+          <Route path='/users' element={<UserManagement />} />
         </Routes>
 
         <footer className='bg-body-tertiary'>
