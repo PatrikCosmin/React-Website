@@ -30,3 +30,5 @@ Conclusion
 
 Building this React website has been an enriching experience, allowing me to delve into various aspects of web development, including frontend design, state management, user authentication, and server-side scripting. I'm proud of the functionalities implemented and the skills acquired throughout this project.
 
+https://www.linkedin.com/posts/patrik-cosmin-vass-79105317b_react-webdevelopment-coding-activity-7191400572363718656-cwTt?utm_source=share&utm_medium=member_desktop
+
